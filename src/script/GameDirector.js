@@ -11,6 +11,8 @@ export default class GameDirector extends Laya.Script {
     }
 
     onEnable() {
+        //全局状态
+        this._store = Laya.store
         //是否已经开始游戏
         this._started = false
         //开始时间
@@ -67,6 +69,7 @@ export default class GameDirector extends Laya.Script {
             // enemy.pos(Math.random() * (Laya.stage.width - 100), -100);
             enemy.pos(Math.random() * 300, Math.random() * (Laya.stage.height - 200))
             this.spriteBox.addChild(enemy)
+            this._store.actions.addEnemy(enemy)
         }
     }
 
@@ -83,10 +86,17 @@ export default class GameDirector extends Laya.Script {
     _createBullet() {
         let weapon = this._weapon
         if (weapon) {
+            //获取所有敌人,x坐标从大到小排序，0首位最近
+            let enemyArr = [...this._store.state.enemyMap.keys()].sort((a, b) => b.x - a.x)
+            let enemyTarget = enemyArr[0]
             //使用对象池创建子弹
             for (let i = 0; i < 10; i++) {
                 let bullet = Laya.Pool.getItemByCreateFun("bullet", this.bullet.create, this.bullet)
-                bullet.pos(weapon.x, Laya.stage.height * Math.random())
+                // bullet.pos(weapon.x, Laya.stage.height * Math.random())
+                bullet.pos(weapon.x, weapon.y)
+                let x = (enemyTarget.x - bullet.x)/10
+                let y = (bullet.y - enemyTarget.y)/10
+                bullet.getComponent(Laya.RigidBody).setVelocity({ x, y })
                 this.spriteBox.addChild(bullet)
             }
         }

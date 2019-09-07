@@ -2,7 +2,7 @@
     "x":0,
     "type":"Sprite",
     "selectedBox":15,
-    "selecteID":16,
+    "selecteID":17,
     "searchKey":"Sprite,weapon",
     "props":{"y":0,"x":0,"presetID":1,"preset":"laya/pages/prefab/Weapon.prefab","name":"weapon","isPresetRoot":true},
     "nodeParent":-1,

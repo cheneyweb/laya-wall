@@ -5,8 +5,8 @@ export default class Bullet extends Laya.Script {
     constructor() { super() }
     onEnable() {
         //设置初始速度
-        let rigidBody = this.owner.getComponent(Laya.RigidBody)
-        rigidBody.setVelocity({ x: -10, y: 0 })
+        // let rigidBody = this.owner.getComponent(Laya.RigidBody)
+        // rigidBody.setVelocity({ x: -10, y: 0 })
     }
 
     onTriggerEnter(other, self, contact) {
