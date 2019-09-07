@@ -1,0 +1,18 @@
+D .
+D ani
+P 75CCA001 emeny1.png
+P 2DB375DE enemy2.png
+P 167B7CAA enemy3.png
+P 0201D4EA enemy4.png
+P 453E63D3 enemy5.png
+P BC826E5B weapon1.png
+P 96CC6C8D weapon2.png
+D sound
+R 1DC3ABD8 destroy.wav
+R FF0B6E8D hit.wav
+D sprite
+R 178BAA06 bg.jpg
+P 9A09F804 block.png
+P 6D5C7F8E bullet.png
+P 6C870C49 chip.png
+P 1DFA6065 chip2.png
