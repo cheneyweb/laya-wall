@@ -35,7 +35,7 @@
             "source":"src/script/Weapon.js",
             "searchKey":"Script,Weapon",
             "removeAble":true,
-            "props":{"presetID":3,"preset":"laya/pages/prefab/Weapon.prefab"},
+            "props":{"y":-3,"x":0,"presetID":3,"preset":"laya/pages/prefab/Weapon.prefab"},
             "nodeParent":15,
             "label":"Weapon",
             "isDirectory":false,
