@@ -32,7 +32,7 @@
             "x":15,
             "type":"Label",
             "searchKey":"Label,labelScore",
-            "props":{"y":0,"x":1111,"width":174,"var":"labelScore","height":43,"fontSize":40,"color":"#00ff33","align":"center"},
+            "props":{"y":0,"x":1000,"width":174,"var":"labelScore","height":43,"fontSize":40,"color":"#00ff33","align":"center"},
             "nodeParent":2,
             "label":"labelScore",
             "isDirectory":false,

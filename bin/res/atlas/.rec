@@ -13,7 +13,8 @@ R 1DC3ABD8 destroy.wav
 R FF0B6E8D hit.wav
 D sprite
 R 178BAA06 bg.jpg
-P 9A09F804 block.png
+P 9FCF002E block.png
+P 9A09F804 block2.png
 P 6D5C7F8E bullet.png
 P 6C870C49 chip.png
 P 1DFA6065 chip2.png

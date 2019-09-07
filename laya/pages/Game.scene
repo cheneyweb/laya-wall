@@ -2,11 +2,11 @@
     "x":0,
     "type":"Scene",
     "selectedBox":2,
-    "selecteID":20,
+    "selecteID":3,
     "searchKey":"Scene,game",
     "props":{"width":1336,"sceneColor":"#000000","name":"game","height":640},
     "nodeParent":-1,
-    "maxID":21,
+    "maxID":25,
     "label":"game",
     "isOpen":true,
     "isDirectory":true,
@@ -63,7 +63,7 @@
             "x":15,
             "type":"Sprite",
             "searchKey":"Sprite,wall",
-            "props":{"y":0,"x":1316,"width":20,"texture":"sprite/block.png","name":"wall","height":640},
+            "props":{"y":0,"x":1236,"width":100,"texture":"sprite/block.png","name":"wall","height":640},
             "nodeParent":2,
             "label":"wall",
             "isOpen":false,
@@ -77,7 +77,7 @@
                     "switchAble":true,
                     "searchKey":"BoxCollider",
                     "removeAble":true,
-                    "props":{"y":0,"x":0,"width":20,"label":"wall","height":640},
+                    "props":{"y":0,"x":0,"width":100,"label":"wall","height":640},
                     "nodeParent":6,
                     "label":"BoxCollider",
                     "isDirectory":false,
@@ -119,6 +119,116 @@
             "compId":10,
             "child":[
                 ]
+        },
+        {
+            "x":15,
+            "type":"Sprite",
+            "selectedBox":15,
+            "selecteID":16,
+            "searchKey":"Sprite,weapon1",
+            "props":{"y":145,"x":1070,"presetID":1,"preset":"laya/pages/prefab/Weapon.prefab","name":"weapon1"},
+            "nodeParent":2,
+            "maxID":18,
+            "label":"weapon1",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":21,
+            "child":[
+                {
+                    "type":"Animation",
+                    "searchKey":"Animation",
+                    "props":{"presetID":2,"preset":"laya/pages/prefab/Weapon.prefab"},
+                    "nodeParent":21,
+                    "label":"aniTurret",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":16,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/script/Weapon.js",
+                    "searchKey":"Script,Weapon",
+                    "removeAble":true,
+                    "props":{"presetID":3,"preset":"laya/pages/prefab/Weapon.prefab"},
+                    "nodeParent":21,
+                    "label":"Weapon",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":17,
+                    "child":[
+                        ]
+                }],
+            "animations":[
+                {
+                    "nodes":[
+                        ],
+                    "name":"ani1",
+                    "id":1,
+                    "frameRate":24,
+                    "action":0
+                }]
+        },
+        {
+            "x":15,
+            "type":"Sprite",
+            "selectedBox":15,
+            "selecteID":16,
+            "searchKey":"Sprite,weapon2",
+            "props":{"y":500,"x":1070,"presetID":1,"preset":"laya/pages/prefab/Weapon.prefab","name":"weapon2"},
+            "nodeParent":2,
+            "maxID":18,
+            "label":"weapon2",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":22,
+            "child":[
+                {
+                    "type":"Animation",
+                    "searchKey":"Animation",
+                    "props":{"presetID":2,"preset":"laya/pages/prefab/Weapon.prefab"},
+                    "nodeParent":22,
+                    "label":"aniTurret",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":23,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/script/Weapon.js",
+                    "searchKey":"Script,Weapon",
+                    "removeAble":true,
+                    "props":{"presetID":3,"preset":"laya/pages/prefab/Weapon.prefab"},
+                    "nodeParent":22,
+                    "label":"Weapon",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":24,
+                    "child":[
+                        ]
+                }],
+            "animations":[
+                {
+                    "nodes":[
+                        ],
+                    "name":"ani1",
+                    "id":1,
+                    "frameRate":24,
+                    "action":0
+                }]
         }],
     "animations":[
         {

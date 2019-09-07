@@ -18,19 +18,24 @@ export default class GameDirector extends Laya.Script {
         this._createEnemyInterval = 1000                        //创建敌人时间间隔
         this._createBulletInterval = 100                        //创建子弹时间间隔  
         this.spriteBox = this.owner.getChildByName("spriteBox") //敌人和子弹所在的容器
+        this.weaponArr = []
+        this.weaponArr.push(this.owner.getChildByName("weapon1"))
+        this.weaponArr.push(this.owner.getChildByName("weapon2"))
     }
 
     onUpdate() {
         let now = Date.now()
-        //每间隔一段时间创建敌人
-        if (this._started && now - this._lastCreateEnemyTime > this._createEnemyInterval) {
-            this._lastCreateEnemyTime = now
-            this._createEnemy()
-        }
-        //每间隔一段时间创建子弹
-        if (this._started && now - this._lastCreateBulletTime > this._createBulletInterval) {
-            this._lastCreateBulletTime = now
-            this._createBullet()
+        if (this._started) {
+            //每间隔一段时间创建敌人
+            if (now - this._lastCreateEnemyTime > this._createEnemyInterval) {
+                this._lastCreateEnemyTime = now
+                this._createEnemy()
+            }
+            //每间隔一段时间创建子弹
+            if (now - this._lastCreateBulletTime > this._createBulletInterval) {
+                this._lastCreateBulletTime = now
+                this._createBullet()
+            }
         }
     }
 
@@ -43,7 +48,7 @@ export default class GameDirector extends Laya.Script {
     startGame() {
         if (!this._started) {
             this._started = true
-            this._createWeapon()
+            // this._createWeapon()
         }
     }
 
@@ -63,12 +68,13 @@ export default class GameDirector extends Laya.Script {
 
     _createEnemy() {
         //使用对象池创建敌人
-        for (let i = 0; i < 10; i++) {
-            let enemy = Laya.Pool.getItemByCreateFun("enemy", this.enemy.create, this.enemy)
-            // enemy.pos(Math.random() * (Laya.stage.width - 100), -100);
-            enemy.pos(Math.random() * 100, Math.random() * Laya.stage.height)
-            this.spriteBox.addChild(enemy)
-            this._store.actions.addEnemy(enemy)
+        if (this._store.state.enemyMap.size < 200) {
+            for (let i = 0; i < 10; i++) {
+                let enemy = Laya.Pool.getItemByCreateFun("enemy", this.enemy.create, this.enemy)
+                enemy.pos(Math.random() * 100, Math.random() * Laya.stage.height)
+                this.spriteBox.addChild(enemy)
+                this._store.actions.addEnemy(enemy)
+            }
         }
     }
 
@@ -83,27 +89,28 @@ export default class GameDirector extends Laya.Script {
     _createBullet() {
         //获取所有敌人,x坐标从大到小排序，0首位最近
         let enemyArr = [...this._store.state.enemyMap.keys()].sort((a, b) => b.x - a.x)
-        let enemyTarget = enemyArr[0]
-        //获取武器
-        let weapon = this._weapon
-        //武器准备好且敌人出现了
-        if (weapon && enemyTarget) {
-            //使用对象池创建子弹
-            let bullet = Laya.Pool.getItemByCreateFun("bullet", this.bullet.create, this.bullet)
-
-            //设定子弹初始位置
-            bullet.pos(weapon.x - 60, weapon.y)
-            //设定子弹初速度
-            let vx = (enemyTarget.x - bullet.x) / 15
-            let vy = (enemyTarget.y - bullet.y) / 15
-            //武器旋转角度
-            let rotation = Math.atan(vy / vx) / (Math.PI / 180)
-            weapon.rotation = rotation
-            // if (Math.abs(weapon.rotation - rotation) > 15) {
-            // Laya.Tween.to(weapon, { rotation }, 100, Laya.Ease.elasticInOut)
-            // }
-            bullet.getComponent(Laya.RigidBody).setVelocity({ x: vx, y: vy })
-            this.spriteBox.addChild(bullet)
+        //获取所有武器
+        for (let i = 0; i < this.weaponArr.length; i++) {
+            let weapon = this.weaponArr[i]
+            let enemyTarget = enemyArr[i]
+            //武器准备好且敌人出现了
+            if (enemyTarget) {
+                //使用对象池创建子弹
+                let bullet = Laya.Pool.getItemByCreateFun("bullet", this.bullet.create, this.bullet)
+                //设定子弹初始位置
+                bullet.pos(weapon.x - 60, weapon.y)
+                //设定子弹初速度
+                let vx = (enemyTarget.x - bullet.x) / 15
+                let vy = (enemyTarget.y - bullet.y) / 15
+                //武器旋转角度
+                let rotation = Math.atan(vy / vx) / (Math.PI / 180)
+                weapon.rotation = rotation
+                // if (Math.abs(weapon.rotation - rotation) > 15) {
+                // Laya.Tween.to(weapon, { rotation }, 100, Laya.Ease.elasticInOut)
+                // }
+                bullet.getComponent(Laya.RigidBody).setVelocity({ x: vx, y: vy })
+                this.spriteBox.addChild(bullet)
+            }
         }
     }
 }
