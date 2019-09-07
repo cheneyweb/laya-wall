@@ -13,8 +13,8 @@ export default class Enemy extends Laya.Script {
         this.textLevel = this.owner.getChildByName("textLevel")
         this.textLevel.text = `${this._level}`
         //僵尸动画
-        this.aniZombi = this.owner.getChildByName("aniZombi")
-        this.aniZombi.play(0, true)
+        // this.aniZombi = this.owner.getChildByName("aniZombi")
+        // this.aniZombi.play(0, true)
     }
 
     onUpdate() {

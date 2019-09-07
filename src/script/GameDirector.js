@@ -92,7 +92,7 @@ export default class GameDirector extends Laya.Script {
             let bullet = Laya.Pool.getItemByCreateFun("bullet", this.bullet.create, this.bullet)
 
             //设定子弹初始位置
-            bullet.pos(weapon.x - 90, weapon.y - 20)
+            bullet.pos(weapon.x - 60, weapon.y)
             //设定子弹初速度
             let vx = (enemyTarget.x - bullet.x) / 15
             let vy = (enemyTarget.y - bullet.y) / 15

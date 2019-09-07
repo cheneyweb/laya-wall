@@ -78,7 +78,7 @@
                             }],
                         "pivotY":[
                             {
-                                "value":35,
+                                "value":0,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
                                 "target":5,
@@ -87,7 +87,7 @@
                             }],
                         "pivotX":[
                             {
-                                "value":45,
+                                "value":0,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
                                 "target":5,
