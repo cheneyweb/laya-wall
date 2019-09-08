@@ -5,7 +5,7 @@
     "searchKey":"View",
     "props":{"sceneWidth":600,"sceneHeight":400,"sceneColor":"#000000"},
     "nodeParent":-1,
-    "maxID":4,
+    "maxID":5,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -23,7 +23,7 @@
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":3,
+            "compId":4,
             "child":[
                 ]
         }],
@@ -31,48 +31,68 @@
         {
             "nodes":[
                 {
-                    "target":3,
+                    "target":4,
                     "keyframes":{
+                        "y":[
+                            {
+                                "value":0,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":4,
+                                "key":"y",
+                                "index":0
+                            }],
+                        "x":[
+                            {
+                                "value":0,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":4,
+                                "key":"x",
+                                "index":0
+                            }],
                         "skin":[
                             {
-                                "value":"ani/emeny1.png",
+                                "value":"ani/rat1.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
-                                "target":3,
+                                "target":4,
                                 "key":"skin",
                                 "index":0
                             },
                             {
-                                "value":"ani/enemy2.png",
+                                "value":"ani/rat2.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
-                                "target":3,
+                                "target":4,
                                 "key":"skin",
                                 "index":1
                             },
                             {
-                                "value":"ani/enemy3.png",
+                                "value":"ani/rat3.png",
                                 "tweenMethod":"linearNone",
                                 "tween":false,
-                                "target":3,
+                                "target":4,
                                 "key":"skin",
                                 "index":2
-                            },
+                            }],
+                        "pivotY":[
                             {
-                                "value":"ani/enemy4.png",
+                                "value":0,
                                 "tweenMethod":"linearNone",
-                                "tween":false,
-                                "target":3,
-                                "key":"skin",
-                                "index":3
-                            },
+                                "tween":true,
+                                "target":4,
+                                "key":"pivotY",
+                                "index":0
+                            }],
+                        "pivotX":[
                             {
-                                "value":"ani/enemy5.png",
+                                "value":0,
                                 "tweenMethod":"linearNone",
-                                "tween":false,
-                                "target":3,
-                                "key":"skin",
-                                "index":4
+                                "tween":true,
+                                "target":4,
+                                "key":"pivotX",
+                                "index":0
                             }]
                     }
                 }],

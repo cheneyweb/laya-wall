@@ -12,6 +12,8 @@ export default class Enemy extends Laya.Script {
         //等级文本
         this.textLevel = this.owner.getChildByName("textLevel")
         this.textLevel.text = `${this._level}`
+
+        this.aniZombi = this.owner.getChildByName("aniZombi")
         //僵尸动画
         // this.aniZombi = this.owner.getChildByName("aniZombi")
         // this.aniZombi.play(0, true)
@@ -25,8 +27,12 @@ export default class Enemy extends Laya.Script {
     onTriggerEnter(other, self, contact) {
         //碰撞到子弹后，增加积分，播放声音特效
         let owner = this.owner
-        if (other.label == "bullet") {
+        if (other.label == "bullet" || other.label == "soldier") {
             if (this._level > 1) {
+                if (other.label == "soldier") {
+                    this.aniZombi.texture = 'ani/rat4.png'
+                    this.aniZombi.clear()
+                }
                 this._level--
                 this.textLevel.changeText(`${this._level}`)
                 // owner.getComponent(Laya.RigidBody).setVelocity({ x: -10, y: 0 })
@@ -46,6 +52,9 @@ export default class Enemy extends Laya.Script {
             owner.removeSelf()
             // GameUI.instance.stopGame();
         }
+    }
+
+    onTriggerExit(other, self, contact) {
     }
 
     onDisable() {

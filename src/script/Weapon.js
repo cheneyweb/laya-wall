@@ -7,4 +7,8 @@ export default class Weapon extends Laya.Script {
         // 开启炮塔动画
         // this.owner.getChildByName("aniTurret").play(0, true)
     }
+
+    onUpdate() {
+        // this.owner.rotation++;
+    }
 }

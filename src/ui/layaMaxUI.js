@@ -5,4 +5,16 @@ var View=laya.ui.View;
 var Dialog=laya.ui.Dialog;
 var Scene=Laya.Scene;
 if(!window.ui) window.ui={};
+var Weapon2UI=(function(_super){
+		function Weapon2UI(){
+			
+		    this.ani1=null;
+			Weapon2UI.__super.call(this);
+			this.effectData =ui.ani.Weapon2UI.uiView;;
+		}
+		CLASS$(Weapon2UI,'ui.ani.Weapon2UI',_super);
+		var __proto__=Weapon2UI.prototype;
+		Weapon2UI.uiView={"type":"View","props":{},"compId":2,"child":[{"type":"Sprite","props":{"y":-69,"x":-63,"texture":"sprite/weaponRing.png","name":"ring"},"compId":4},{"type":"Sprite","props":{"y":-40,"x":-40,"texture":"sprite/weapon.png","name":"weapon"},"compId":3}],"animations":[{"nodes":[{"target":2,"keyframes":{"x":[{"value":0,"tweenMethod":"linearNone","tween":true,"target":2,"key":"x","index":0}]}},{"target":4,"keyframes":{"y":[{"value":0,"tweenMethod":"linearNone","tween":true,"target":4,"key":"y","index":0},{"value":-1,"tweenMethod":"linearNone","tween":true,"target":4,"key":"y","index":24}],"x":[{"value":-1,"tweenMethod":"linearNone","tween":true,"target":4,"key":"x","index":0},{"value":-1,"tweenMethod":"linearNone","tween":true,"target":4,"key":"x","index":24}],"rotation":[{"value":0,"tweenMethod":"linearNone","tween":true,"target":4,"key":"rotation","index":0},{"value":360,"tweenMethod":"linearNone","tween":true,"target":4,"key":"rotation","index":24}],"pivotY":[{"value":68,"tweenMethod":"linearNone","tween":true,"target":4,"key":"pivotY","index":0},{"value":68,"tweenMethod":"linearNone","tween":true,"target":4,"key":"pivotY","index":24}],"pivotX":[{"value":62.5,"tweenMethod":"linearNone","tween":true,"target":4,"key":"pivotX","index":0},{"value":62.5,"tweenMethod":"linearNone","tween":true,"target":4,"key":"pivotX","index":24}]}},{"target":3,"keyframes":{"y":[{"value":15,"tweenMethod":"linearNone","tween":true,"target":3,"key":"y","index":0},{"value":-15,"tweenMethod":"linearNone","tween":true,"target":3,"key":"y","index":12},{"value":15,"tweenMethod":"linearNone","tween":true,"target":3,"key":"y","index":24}],"x":[{"value":0,"tweenMethod":"linearNone","tween":true,"target":3,"key":"x","index":0},{"value":0,"tweenMethod":"linearNone","tween":true,"target":3,"key":"x","index":12},{"value":0,"tweenMethod":"linearNone","tween":true,"target":3,"key":"x","index":24}],"pivotY":[{"value":45,"tweenMethod":"linearNone","tween":true,"target":3,"key":"pivotY","index":0},{"value":45,"tweenMethod":"linearNone","tween":true,"target":3,"key":"pivotY","index":12}],"pivotX":[{"value":38.5,"tweenMethod":"linearNone","tween":true,"target":3,"key":"pivotX","index":0},{"value":38.5,"tweenMethod":"linearNone","tween":true,"target":3,"key":"pivotX","index":12}],"name":[{"value":"weapon","tweenMethod":"linearNone","tween":false,"target":3,"key":"name","index":0}]}}],"name":"ani1","id":1,"frameRate":24,"action":0}],"loadList":["sprite/weaponRing.png","sprite/weapon.png"],"loadList3D":[]};
+		return Weapon2UI;
+	})(EffectAnimation);
 export {ui as default};

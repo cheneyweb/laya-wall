@@ -5,6 +5,7 @@ export default class GameDirector extends Laya.Script {
     /** @prop {name:enemy,tips:"敌人预置对象",type:Prefab}*/
     /** @prop {name:weapon,tips:"武器预置对象",type:Prefab}*/
     /** @prop {name:bullet,tips:"子弹预置对象",type:Prefab}*/
+    /** @prop {name:soldier,tips:"士兵预置对象",type:Prefab}*/
     constructor() {
         super()
         GameDirector.instance = this
@@ -17,7 +18,7 @@ export default class GameDirector extends Laya.Script {
         this._lastCreateBulletTime = Date.now()                 //上次创建子弹时间
         this._createEnemyInterval = 1000                        //创建敌人时间间隔
         this._createBulletInterval = 100                        //创建子弹时间间隔  
-        this.spriteBox = this.owner.getChildByName("spriteBox") //敌人和子弹所在的容器
+        this.spriteBox = this.owner.getChildByName("spriteBox") //敌人,士兵,子弹所在的容器
         this.weaponArr = []
         this.weaponArr.push(this.owner.getChildByName("weapon1"))
         this.weaponArr.push(this.owner.getChildByName("weapon2"))
@@ -39,10 +40,14 @@ export default class GameDirector extends Laya.Script {
         }
     }
 
-    // onStageClick(e) {
-    //     //停止事件冒泡，提高性能
-    //     e.stopPropagation()
-    // }
+    onStageClick(e) {
+        //停止事件冒泡，提高性能
+        e.stopPropagation()
+        //创建士兵
+        if (this._started) {
+            // this._createSoldier(e)
+        }
+    }
 
     /**开始游戏，通过激活本脚本方式开始游戏*/
     startGame() {
@@ -86,6 +91,14 @@ export default class GameDirector extends Laya.Script {
         this.spriteBox.addChild(weapon)
     }
 
+    _createSoldier(e) {
+        //使用对象池创建士兵
+        let soldier = Laya.Pool.getItemByCreateFun("soldier", this.soldier.create, this.soldier)
+        soldier.pos(e.stageX, e.stageY)
+        soldier.getComponent(Laya.RigidBody).setVelocity({ x: -1, y: 0 })
+        this.spriteBox.addChild(soldier)
+    }
+
     _createBullet() {
         //获取所有敌人,x坐标从大到小排序，0首位最近
         let enemyArr = [...this._store.state.enemyMap.keys()].sort((a, b) => b.x - a.x)
@@ -100,14 +113,11 @@ export default class GameDirector extends Laya.Script {
                 //设定子弹初始位置
                 bullet.pos(weapon.x - 60, weapon.y)
                 //设定子弹初速度
-                let vx = (enemyTarget.x - bullet.x) / 15
-                let vy = (enemyTarget.y - bullet.y) / 15
+                let vx = (enemyTarget.x - bullet.x) / 30
+                let vy = (enemyTarget.y - bullet.y) / 30
                 //武器旋转角度
-                let rotation = Math.atan(vy / vx) / (Math.PI / 180)
-                weapon.rotation = rotation
-                // if (Math.abs(weapon.rotation - rotation) > 15) {
-                // Laya.Tween.to(weapon, { rotation }, 100, Laya.Ease.elasticInOut)
-                // }
+                // let rotation = Math.atan(vy / vx) / (Math.PI / 180)
+                // weapon.rotation = rotation
                 bullet.getComponent(Laya.RigidBody).setVelocity({ x: vx, y: vy })
                 this.spriteBox.addChild(bullet)
             }
