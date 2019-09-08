@@ -4,11 +4,17 @@ D ani
 P 3D8B7EC2 cat1.png
 P B3B37B62 cat2.png
 P E5839024 cat3.png
+P 535B888E electric1.png
+P 5FEBF471 electric2.png
 P 75CCA001 emeny1.png
 P 2DB375DE enemy2.png
 P 167B7CAA enemy3.png
 P 0201D4EA enemy4.png
 P 453E63D3 enemy5.png
+P 0CAECAE5 explode1.png
+P 05CF1E10 explode2.png
+P 9A2D5935 explode3.png
+P 45AF3D93 explode4.png
 P 6EE96C84 rat1.png
 P 5832CCF5 rat2.png
 P 5CBE891E rat3.png
@@ -22,12 +28,13 @@ P 9565A5CB weapon3.png
 P 1A3AA2AC weapon4.png
 P F9173110 weapon5.png
 D bg
-P 35054627 bg.png
+R 4E37B420 bg.png
+P 35054627 bg2.png
 D sound
 R 1DC3ABD8 destroy.wav
 R FF0B6E8D hit.wav
 D sprite
-R 098CA60B block.png
+P B079B2E3 block.png
 P 9A09F804 block2.png
 P B07D7373 block3.png
 P DBAA29FB bullet.png

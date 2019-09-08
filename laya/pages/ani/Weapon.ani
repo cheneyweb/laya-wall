@@ -1,15 +1,14 @@
 {
-    "x":0,
     "type":"View",
     "selectedBox":2,
     "searchKey":"View",
     "props":{"sceneWidth":600,"sceneHeight":400,"sceneColor":"#000000"},
     "nodeParent":-1,
-    "maxID":3,
+    "maxID":5,
     "label":"View",
-    "isDirectory":false,
+    "isDirectory":true,
     "isAniNode":true,
-    "hasChild":false,
+    "hasChild":true,
     "compId":2,
     "child":[
         {
@@ -52,14 +51,6 @@
                                 "target":3,
                                 "key":"y",
                                 "index":0
-                            },
-                            {
-                                "value":-1,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":3,
-                                "key":"y",
-                                "index":12
                             },
                             {
                                 "value":0,
@@ -129,28 +120,12 @@
                     "keyframes":{
                         "y":[
                             {
-                                "value":15,
+                                "value":0,
                                 "tweenMethod":"linearNone",
                                 "tween":true,
                                 "target":4,
                                 "key":"y",
                                 "index":0
-                            },
-                            {
-                                "value":-15,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"y",
-                                "index":12
-                            },
-                            {
-                                "value":15,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"y",
-                                "index":24
                             }],
                         "x":[
                             {
@@ -160,14 +135,6 @@
                                 "target":4,
                                 "key":"x",
                                 "index":0
-                            },
-                            {
-                                "value":0,
-                                "tweenMethod":"linearNone",
-                                "tween":true,
-                                "target":4,
-                                "key":"x",
-                                "index":12
                             }],
                         "skin":[
                             {
